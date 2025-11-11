@@ -105,6 +105,26 @@ This returns a URL you can share. Asciinema.org also allows downloading recordin
 - `sleep N` - Pause for N seconds
 - `key KeyName` - Press a specific key (e.g., `key Return`)
 
+### Working with Virtual Environments
+
+If your demo requires a Python virtual environment or other shell setup, activate it within the cast script using `run`:
+
+```bash
+#!/bin/bash
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Activate virtual environment in the demo terminal
+run "source $SCRIPT_DIR/venv/bin/activate"
+
+say "Now running commands with the activated environment..."
+run "python --version"
+run "pip list"
+```
+
+Each `run` command executes in the same persistent shell session, so environment changes persist across commands.
+
 ## Configuration
 
 ### SCREENCAST_HOME
