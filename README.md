@@ -63,7 +63,8 @@ Make it executable and run it:
 
 ```bash
 chmod +x demo.sh
-SCREENCAST_HOME=/tmp/demo ./cast2asciinema demo.sh output
+# Assuming screencaster is in your PATH
+SCREENCAST_HOME=/tmp/demo cast2asciinema demo.sh output
 ```
 
 This will create `output/demo.json`. Play it with:
@@ -111,7 +112,7 @@ This returns a URL you can share. Asciinema.org also allows downloading recordin
 By default, `cast2asciinema` tries to create a temporary home directory at `/demo`, which requires root access. To avoid permission issues, set the `SCREENCAST_HOME` environment variable to a writable location:
 
 ```bash
-SCREENCAST_HOME=/tmp/demo ./cast2asciinema demo.sh output
+SCREENCAST_HOME=/tmp/demo cast2asciinema demo.sh output
 ```
 
 This directory is used as a clean, isolated environment for your demo and is cleaned up automatically after the recording completes.
