@@ -116,3 +116,9 @@ SCREENCAST_HOME=/tmp/demo cast2asciinema demo.sh output
 ```
 
 This directory is used as a clean, isolated environment for your demo and is cleaned up automatically after the recording completes.
+
+## Troubleshooting
+
+### Asciinema configuration prompt
+
+If `cast2asciinema` fails with "Asciinema stopped unexpectedly", asciinema may be prompting for configuration (e.g., sharing settings). This can happen on first run or if settings are reset. The recording will fail during the prompt. Simply run the command again after responding to the prompt, and it will work correctly.
