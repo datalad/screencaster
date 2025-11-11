@@ -64,6 +64,7 @@ Make it executable and run it:
 ```bash
 chmod +x demo.sh
 # Assuming screencaster is in your PATH
+# SCREENCAST_HOME avoids permission issues with default /demo directory
 SCREENCAST_HOME=/tmp/demo cast2asciinema demo.sh output
 ```
 
