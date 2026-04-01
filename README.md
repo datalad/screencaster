@@ -76,12 +76,15 @@ asciinema play output/demo.json
 
 ### Converting to GIF
 
-To convert your recording to an animated GIF, use Docker with the `agg` tool:
+To convert your recording to an animated GIF, use the `agg` tool with podman:
 
 ```bash
 cd output
-docker run --rm -v "$PWD:/data" kayvan/agg /data/demo.json /data/demo.gif
+# :Z flag required for SELinux contexts to allow container write access
+podman run --rm -v "$PWD:/data:Z" docker.io/kayvan/agg /data/demo.json /data/demo.gif
 ```
+
+Note: Using `podman` instead of `docker` avoids creating files owned by root.
 
 This creates an optimized GIF suitable for embedding in documentation or sharing.
 
